@@ -1,0 +1,12 @@
+function [c,ceq] = nonlcon(vars)
+
+[p,d,w] = get_pdw(vars);
+z = get_z(p,d,w);
+h = d - polyval(p,z);
+
+c(1) = z - w/2;
+c(2) = h - .03; %global
+c(3) = 
+ceq =[];
+end
+
