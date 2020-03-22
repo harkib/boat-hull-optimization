@@ -2,7 +2,7 @@ function print(vars)
 
 global deck_width; 
 
-[p,d,w,m,x,y] = get_pdwmxy(vars);
+[p,d,w,x,y] = get_pdwxy(vars);
 
 % plot p
 x1 = linspace(0,w/2);
@@ -18,17 +18,16 @@ plot(x2,y2)
 hold on
 yline(polyval(p,get_z(p,d,w)),'-.b');
 yline(polyval(p,deck_width/2),'-.r');
-yCm = Compute_Cm(p,d,w,m)
-yCb = Compute_Cb(p,d,w)
-plot(0,yCm,'x');
+yCm = Compute_Cm(p,d,w);
+yCb = Compute_Cb(p,d,w);
+plot(0,yCm,'x')
 hold on
-plot(0,yCb,'x');
+plot(x,y,'o')
 hold on
-z = get_z(p,d,w)
-h = d - polyval(p,z)
-d
-w
-deck_width
-m
+% z = get_z(p,d,w)
+% h = d - polyval(p,z)
+% d
+% w
+% deck_width
 end 
 

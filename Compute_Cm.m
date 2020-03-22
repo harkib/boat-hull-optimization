@@ -1,4 +1,4 @@
-function [Cm] = Compute_Cm(p,d,w)
+function [Cm] = Compute_Cm(p,d,w,m)
 global thickness;
 global load;
 global deck_mass; 
@@ -14,7 +14,7 @@ diff_func = @(x) polyval(p,x) - polyval(p,x - thickness);
 boat_cross_section_area = 2* integral(diff_func,0,w/2);
 
 boat_mass = boat_cross_section_area* boat_length*boat_density;
-M_total = boat_mass + load + deck_mass;
+M_total = boat_mass + load + deck_mass + m;
 setGlobal_M_total(M_total);
 
 y_bar_boat_func = @(x) .5*(polyval(p,x).^2 - polyval(p,x - thickness).^2);
